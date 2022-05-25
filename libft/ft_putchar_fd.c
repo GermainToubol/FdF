@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:43:26 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/12 14:27:00 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/25 15:19:25 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -14,5 +14,8 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	int	i;
+
+	i = write(fd, &c, 1);
+	(void)i;
 }

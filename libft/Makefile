@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 16:41:38 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/25 12:52:16 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/25 15:18:05 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS = 		ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c 		\
@@ -29,7 +29,7 @@ OBJS =		$(SRCS:.c=.o)
 NAME =		libft.a
 
 CC = 		gcc
-CFLAGS =	-Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra -Werror -O3
 RM =		rm -f
 
 $(NAME):	$(OBJS)
