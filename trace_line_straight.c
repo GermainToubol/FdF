@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:07:36 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/25 17:20:52 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/26 09:54:10 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -23,7 +23,7 @@ int	trace_horizontal(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	{
 		while (i < dx)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x + i, pt1->y, 0xFFFFFF);
+			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x + i, pt1->y, color_height(pt1->z));
 			i++;
 		}
 	}
@@ -31,7 +31,7 @@ int	trace_horizontal(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	{
 		while (i < -dx)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x - i, pt1->y, 0xFFFFFF);
+			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x - i, pt1->y, color_height(pt1->z));
 			i++;
 		}
 	}
@@ -49,7 +49,7 @@ int	trace_vertical(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	{
 		while (i < dy)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y + i, 0xFFFFFF);
+			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y + i, color_height(pt1->z));
 			i++;
 		}
 	}
@@ -57,7 +57,7 @@ int	trace_vertical(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	{
 		while (i < -dy)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y - i, 0xFFFFFF);
+			mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y - i, color_height(pt1->z));
 			i++;
 		}
 	}

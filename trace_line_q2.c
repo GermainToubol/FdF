@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 15:37:05 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/25 17:04:18 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/26 08:55:24 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -26,7 +26,7 @@ int	trace_o4(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	dy *= 2;
 	while (1)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, 0xFFFFFF);
+		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, color_height(pt1->z));
 		pt1->x -= 1;
 		if (pt1->x == pt2->x)
 			return (0);
@@ -52,7 +52,7 @@ int	trace_o3(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	dy *= 2;
 	while (1)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, 0xFFFFFF);
+		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, color_height(pt1->z));
 		pt1->y += 1;
 		if (pt1->y == pt2->y)
 			return (0);
@@ -78,7 +78,7 @@ int trace_o5(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	dy *= 2;
 	while (1)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, 0xFFFFFF);
+		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, color_height(pt1->z));
 		pt1->x -= 1;
 		if (pt1->x == pt2->x)
 			return (0);
@@ -104,7 +104,7 @@ int	trace_o6(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr)
 	dy *= 2;
 	while (1)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, 0xFFFFFF);
+		mlx_pixel_put(mlx_ptr, win_ptr, pt1->x, pt1->y, color_height(pt1->z));
 		pt1->y -= 1;
 		if (pt1->y == pt2->y)
 			return (0);
