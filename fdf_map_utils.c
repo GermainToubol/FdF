@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:33:57 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/26 14:25:18 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/26 17:03:35 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -32,6 +32,8 @@ void	fdf_free_map(t_map *map)
 	}
 	free(map->map);
 	map->map = NULL;
+	map->scale = 1;
+	map->scale_z = 1;
 	map->size_x = 0;
 	map->size_y = 0;
 }

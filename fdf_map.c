@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 11:44:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/26 16:06:05 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/26 16:39:14 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -28,7 +28,7 @@ int fdf_line_map(char *line, t_map *map)
 			n++;
 		i++;
 	}
-	i = fdf_extend_map(map, map->size_x + 1, n);
+	i = fdf_extend_map(map, map->size_x + 1, n + 1);
 	if (i < 0)
 		return (-1);
 	strs = ft_split(line, ' ');

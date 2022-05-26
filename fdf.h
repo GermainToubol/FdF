@@ -6,11 +6,16 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:51:20 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/26 15:54:16 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/26 17:30:56 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
 # define FDF_H
+
+enum e_keys
+{
+	ESC_KEY = 65307
+};
 
 typedef struct s_point
 {
@@ -29,10 +34,17 @@ typedef struct s_map_point
 typedef struct s_map
 {
 	int			scale;
+	int			scale_z;
 	int			size_x;
 	int			size_y;
 	t_map_point	**map;
 }	t_map;
+
+typedef struct s_params
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_params;
 
 int		trace_o1(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr);
 int		trace_o2(t_point *pt1, t_point *pt2, void *mlx_ptr, void *win_ptr);
