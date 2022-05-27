@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 10:59:36 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/27 17:09:58 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/27 18:22:17 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c trace_line_q1.c trace_line_q2.c trace_line.c				\

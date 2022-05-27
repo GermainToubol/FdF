@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:51:20 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/27 17:11:54 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:21:58 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -18,6 +18,7 @@
 enum e_keys
 {
 	ESC_KEY = 65307,
+	ESP_KEY = 32,
 	NUM_PLUS_KEY = 65453,
 	NUM_MINUS_KEY = 65451,
 	W_KEY = 119,
@@ -107,4 +108,5 @@ void	fdf_error_msg(char *s);
 int	fdf_quit(int key, t_params *params);
 int fdf_zoom(int key, t_params *params);
 int fdf_move(int key, t_params *params);
+int fdf_reset_scale(int key, t_params *params);
 #endif

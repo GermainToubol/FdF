@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:03:43 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/16 16:38:51 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:53:33 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -67,7 +67,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* Get_next_line integration */
 
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 1024
 # define MAX_FDS 2
 
 typedef struct s_buffer

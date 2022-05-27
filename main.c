@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:49:33 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/27 17:16:02 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:26:56 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -22,6 +22,7 @@ int	show_key(int key, t_params *params)
 	fdf_quit(key, params);
 	fdf_zoom(key, params);
 	fdf_move(key, params);
+	fdf_reset_scale(key, params);
 	return (0);
 }
 
@@ -86,6 +87,7 @@ int	main(int argc, char **argv)
 	params.win_ptr = mlx_new_window(params.mlx_ptr, WIN_WIDTH, WIN_HEIGHT,
 			argv[1]);
 	params.map = &map;
+	ft_printf("%d -- %d\n", map.size_x, map.size_y);
 	fdf_init_map_param(&map);
 	mlx_loop_hook(params.mlx_ptr, render, &params);
 	mlx_hook(params.win_ptr, 2, 1L << 0, show_key, &params);
