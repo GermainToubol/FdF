@@ -6,12 +6,13 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 10:59:36 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/26 15:53:52 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/27 17:09:58 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c trace_line_q1.c trace_line_q2.c trace_line.c				\
 			trace_line_straight.c display.c color.c fdf_errors.c fdf_parse.c\
-			fdf_map.c fdf_extend_map.c fdf_map_utils.c
+			fdf_map.c fdf_extend_map.c fdf_map_utils.c fdf_img_utils.c fdf_quit.c\
+			fdf_zoom.c fdf_move.c
 OBJS = 		$(SRCS:.c=.o)
 
 NAME = 		fdf

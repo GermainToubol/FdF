@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 11:44:25 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/26 16:39:14 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:30:12 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -14,20 +14,29 @@
 #include "libft.h"
 #include "fdf.h"
 
-int fdf_line_map(char *line, t_map *map)
+static int	count_cols(char *line)
 {
-	int		n;
-	int		i;
-	char	**strs;
+	int	i;
+	int	n;
 
-	n = 0;
 	i = 0;
+	n = 0;
 	while (line[i] != '\0')
 	{
 		if (line[i] == ' ')
 			n++;
 		i++;
 	}
+	return (n);
+}
+
+int	fdf_line_map(char *line, t_map *map)
+{
+	int		n;
+	int		i;
+	char	**strs;
+
+	n = count_cols(line);
 	i = fdf_extend_map(map, map->size_x + 1, n + 1);
 	if (i < 0)
 		return (-1);
