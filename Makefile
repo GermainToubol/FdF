@@ -6,7 +6,7 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 10:59:36 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/30 15:53:56 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/30 16:58:47 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c trace_line_q1.c trace_line_q2.c trace_line.c				\
@@ -41,7 +41,7 @@ $(NAME):	$(OBJS) $(LIBFT) $(MLX)
 			sed 's,\($*\)\.	o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
 			rm -f $@.$$$$
 
-bonus:		$(NAME_B)
+bonus:		all
 
 $(LIBFT):
 			make -C $(LIBFT_DIR)
@@ -52,15 +52,16 @@ $(MLX):
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS) $(OBJS_BONUS) $(DEPS)
+			$(RM) $(OBJS) $(DEPS)
 			make -C $(LIBFT_DIR) clean
 
 fclean:		clean
-			$(RM) $(NAME) $(NAME_B)
+			$(RM) $(NAME)
 			make -C $(LIBFT_DIR) fclean
 			make -C $(MLX_DIR) clean
 
 re:			fclean all
 
 .PHONY:		all clean fclean re bonus
+
 include		$(DEPS)

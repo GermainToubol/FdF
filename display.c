@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:39:03 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/30 15:48:29 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 18:34:03 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <math.h>
@@ -23,7 +23,7 @@ static void	join_y(int x, int y, t_map *map, t_data *img)
 	{
 		fdf_set_pt_coordinates(x - map->size_x / 2, y + 1
 			- map->size_y / 2, &pt2, map);
-		trace_line(&pt1, &pt2, img);
+		trace_line(&pt1, &pt2, img, map);
 	}
 }
 
@@ -37,7 +37,7 @@ static void	join_x(int x, int y, t_map *map, t_data *img)
 	{
 		fdf_set_pt_coordinates(x + 1 - map->size_x / 2, y
 			- map->size_y / 2, &pt2, map);
-		trace_line(&pt1, &pt2, img);
+		trace_line(&pt1, &pt2, img, map);
 	}
 }
 

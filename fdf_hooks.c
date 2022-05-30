@@ -1,6 +1,35 @@
 /* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_hooks.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/30 18:39:08 by gtoubol           #+#    #+#             */
+/*   Updated: 2022/05/30 19:34:28 by gtoubol          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "mlx.h"
 #include "fdf.h"
+#include "libft.h"
+
+int	fdf_update_color(int key, t_params *params)
+{
+	if (key == NUM_8)
+		params->map->color_width += 1;
+	else if (key == NUM_2 && params->map->color_width > 1)
+		params->map->color_width -= 1;
+	else if (key == NUM_4)
+		params->map->color_offset -= 1;
+	else if (key == NUM_6)
+		params->map->color_offset += 1;
+	else if (key == NUM_5)
+	{
+		params->map->color_width = 4;
+		params->map->color_offset = 0;
+	}
+	return (0);
+}
 
 int	show_key(int key, t_params *params)
 {
@@ -9,6 +38,7 @@ int	show_key(int key, t_params *params)
 	fdf_move(key, params);
 	fdf_rotate(key, params);
 	fdf_reset_scale(key, params);
+	fdf_update_color(key, params);
 	if (key == 102)
 		params->map->iso = !params->map->iso;
 	return (0);

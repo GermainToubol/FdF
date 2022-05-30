@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:49:33 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/30 16:15:27 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 19:32:02 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -43,6 +43,21 @@ int	fdf_init_main(int argc, char **argv, t_map *map)
 	return (0);
 }
 
+int	fdf_init_mlx(t_params *params, char *filename)
+{
+	params->mlx_ptr = mlx_init();
+	if (params->mlx_ptr == NULL)
+		return (1);
+	params->win_ptr = mlx_new_window(params->mlx_ptr, WIN_WIDTH, WIN_HEIGHT,
+			filename);
+	if (params->win_ptr == NULL)
+	{
+		free(params->mlx_ptr);
+		return (1);
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_map		map;
@@ -52,9 +67,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (fdf_init_main(argc, argv, &map))
 		return (1);
-	params.mlx_ptr = mlx_init();
-	params.win_ptr = mlx_new_window(params.mlx_ptr, WIN_WIDTH, WIN_HEIGHT,
-			argv[1]);
+	if (fdf_init_mlx(&params, argv[1]))
+		return (1);
 	params.map = &map;
 	fdf_init_map_param(&map);
 	map.iso = 1;

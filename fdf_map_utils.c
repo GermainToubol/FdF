@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:33:57 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/30 16:15:50 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 18:48:34 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -59,4 +59,6 @@ void	fdf_init_map_param(t_map *map)
 	map->theta = 0;
 	map->cos_theta = 1;
 	map->sin_theta = 0;
+	map->color_offset = 0;
+	map->color_width = 4;
 }

@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:51:20 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/30 15:52:26 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 19:35:04 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -28,7 +28,12 @@ enum e_keys
 	KEY_1 = 49,
 	KEY_2 = 50,
 	Q_KEY = 113,
-	E_KEY = 101
+	E_KEY = 101,
+	NUM_8 = 65431,
+	NUM_4 = 65430,
+	NUM_6 = 65432,
+	NUM_2 = 65433,
+	NUM_5 = 65437
 };
 
 typedef struct s_point
@@ -57,6 +62,8 @@ typedef struct s_map
 	float		sin_theta;
 	float		cos_theta;
 	int			iso;
+	int			color_width;
+	int			color_offset;
 	t_map_point	**map;
 }	t_map;
 
@@ -77,26 +84,29 @@ typedef struct s_params
 	t_map	*map;
 }	t_params;
 
-int				trace_o1(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o2(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o3(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o4(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o5(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o6(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o7(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_o8(t_point *pt1, t_point *pt2, t_data *img);
+int				trace_o1(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o2(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o3(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o4(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o5(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o6(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o7(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
+int				trace_o8(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
 
-int				trace_horizontal(t_point *pt1, t_point *pt2, t_data *img);
-int				trace_vertical(t_point *pt1, t_point *pt2, t_data *img);
+int				trace_horizontal(t_point *pt1, t_point *pt2, t_data *img,
+					t_map *map);
+int				trace_vertical(t_point *pt1, t_point *pt2, t_data *img,
+					t_map *map);
 
-void			trace_line(t_point *pt1, t_point *pt2, t_data *img);
+void			trace_line(t_point *pt1, t_point *pt2, t_data *img, t_map *map);
 void			display_map(t_map *map, t_data *img);
 
 void			init_img(t_data *img, void *mlx_ptr, int width, int height);
 void			fdf_pixel_put(t_data *data, int x, int y, int color);
 
-unsigned int	color_height(int height);
-void			draw_color_map(t_data *img);
+//void			fdf_c
+unsigned int	color_height(int height, t_map *map);
+void			draw_color_map(t_data *img, t_map *map);
 
 void			fdf_init_map(t_map *map);
 void			fdf_free_map(t_map *map);
@@ -114,8 +124,8 @@ int				x_quit(t_params *params);
 int				draw_all(t_params *params);
 int				render(t_params *params);
 
-int	generate_i_j(int *i, int *j, t_map *map);
-void	fdf_set_pt_coordinates(int x, int y, t_point *pt, t_map *map);
+int				generate_i_j(int *i, int *j, t_map *map);
+void			fdf_set_pt_coordinates(int x, int y, t_point *pt, t_map *map);
 
 int				fdf_quit(int key, t_params *params);
 int				fdf_zoom(int key, t_params *params);
