@@ -6,12 +6,12 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:00:45 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/27 17:07:50 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 13:42:29 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
 
-int fdf_zoom(int key, t_params *params)
+int	fdf_zoom(int key, t_params *params)
 {
 	if (key == NUM_PLUS_KEY)
 		params->map->scale_z++;

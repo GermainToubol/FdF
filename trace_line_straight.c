@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:07:36 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/27 15:31:31 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:54:10 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -23,7 +23,7 @@ int	trace_horizontal(t_point *pt1, t_point *pt2, t_data *img)
 	{
 		while (i < dx)
 		{
-			fdf_pixel_put(img, pt1->x + i, pt2->y, color_height(pt1->z));
+			fdf_pixel_put(img, pt1->x + i, pt1->y, color_height(pt1->z));
 			i++;
 		}
 	}
@@ -31,7 +31,7 @@ int	trace_horizontal(t_point *pt1, t_point *pt2, t_data *img)
 	{
 		while (i < -dx)
 		{
-			fdf_pixel_put(img, pt1->x - i, pt2->y, color_height(pt1->z));
+			fdf_pixel_put(img, pt1->x - i, pt1->y, color_height(pt1->z));
 			i++;
 		}
 	}
@@ -49,7 +49,7 @@ int	trace_vertical(t_point *pt1, t_point *pt2, t_data *img)
 	{
 		while (i < dy)
 		{
-			fdf_pixel_put(img, pt1->x, pt2->y + i, color_height(pt1->z));
+			fdf_pixel_put(img, pt1->x, pt1->y + i, color_height(pt1->z));
 			i++;
 		}
 	}
@@ -57,7 +57,7 @@ int	trace_vertical(t_point *pt1, t_point *pt2, t_data *img)
 	{
 		while (i < -dy)
 		{
-			fdf_pixel_put(img, pt1->x, pt2->y - i, color_height(pt1->z));
+			fdf_pixel_put(img, pt1->x, pt1->y - i, color_height(pt1->z));
 			i++;
 		}
 	}

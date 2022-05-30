@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:33:57 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/27 15:30:37 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 13:41:25 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -53,6 +53,10 @@ void	fdf_init_map_param(t_map *map)
 		map->scale = (int)sc1;
 	map->scale_z = 2;
 	map->centering = sqrt(3) * ((float)map->size_y - (float)map->size_x) / 8;
-	map->origin.x = WIN_WIDTH / 2 - map->scale * map->centering;
-	map->origin.y = 50;
+	map->origin.x = WIN_WIDTH / 2 + map->scale * map->centering;
+	map->origin.y = WIN_HEIGHT / 2 + map->scale
+		* ((float)map->size_y + (float)map->size_x) / 16;
+	map->theta = 0;
+	map->cos_theta = 1;
+	map->sin_theta = 0;
 }

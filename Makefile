@@ -6,14 +6,15 @@
 #    By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 10:59:36 by gtoubol           #+#    #+#              #
-#    Updated: 2022/05/27 18:22:17 by gtoubol          ###   ########.fr        #
+#    Updated: 2022/05/30 14:21:13 by gtoubol          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 SRCS =		main.c trace_line_q1.c trace_line_q2.c trace_line.c				\
 			trace_line_straight.c display.c color.c fdf_errors.c fdf_parse.c\
 			fdf_map.c fdf_extend_map.c fdf_map_utils.c fdf_img_utils.c fdf_quit.c\
-			fdf_zoom.c fdf_move.c
+			fdf_zoom.c fdf_move.c fdf_hooks.c fdf_generate_mapcover.c
 OBJS = 		$(SRCS:.c=.o)
+DEPS =		$(SRCS:.c=.d)
 
 NAME = 		fdf
 
@@ -34,6 +35,12 @@ $(NAME):	$(OBJS) $(LIBFT) $(MLX)
 %.o:		%.c
 			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
+%.d:		%.c
+			@set -e; rm -f $@; \
+			$(CC) -MM $(CFLAGS) $(INCLUDES) $< > $@.$$$$; \
+			sed 's,\($*\)\.	o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+			rm -f $@.$$$$
+
 bonus:		$(NAME_B)
 
 $(LIBFT):
@@ -45,7 +52,7 @@ $(MLX):
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS) $(OBJS_BONUS)
+			$(RM) $(OBJS) $(OBJS_BONUS) $(DEPS)
 			make -C $(LIBFT_DIR) clean
 
 fclean:		clean
@@ -56,3 +63,4 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re bonus
+include		$(DEPS)

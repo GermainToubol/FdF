@@ -1,6 +1,7 @@
 *~
 \#*\#
 *.o
+*.d
 *.org
 fdf
 maps
