@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:51:20 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/30 14:20:47 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 15:52:26 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -56,6 +56,7 @@ typedef struct s_map
 	float		theta;
 	float		sin_theta;
 	float		cos_theta;
+	int			iso;
 	t_map_point	**map;
 }	t_map;
 
@@ -114,6 +115,7 @@ int				draw_all(t_params *params);
 int				render(t_params *params);
 
 int	generate_i_j(int *i, int *j, t_map *map);
+void	fdf_set_pt_coordinates(int x, int y, t_point *pt, t_map *map);
 
 int				fdf_quit(int key, t_params *params);
 int				fdf_zoom(int key, t_params *params);

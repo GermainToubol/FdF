@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 15:28:41 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/27 13:04:49 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:11:34 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -25,7 +25,7 @@ int	trace_o1(t_point *pt1, t_point *pt2, t_data *img)
 	dy *= 2;
 	while (1)
 	{
-		fdf_pixel_put(img, pt1->x, pt1->y, color_height(pt1->z));
+		fdf_pixel_put(img, pt1->x, pt1->y, color_height((pt1->z + pt2->z) / 2));
 		pt1->x += 1;
 		if (pt1->x == pt2->x)
 			return (0);
@@ -51,7 +51,7 @@ int	trace_o2(t_point *pt1, t_point *pt2, t_data *img)
 	dy *= 2;
 	while (1)
 	{
-		fdf_pixel_put(img, pt1->x, pt1->y, color_height(pt1->z));
+		fdf_pixel_put(img, pt1->x, pt1->y, color_height((pt1->z + pt2->z) / 2));
 		pt1->y += 1;
 		if (pt1->y == pt2->y)
 			return (0);
@@ -77,7 +77,7 @@ int	trace_o8(t_point *pt1, t_point *pt2, t_data *img)
 	dy *= 2;
 	while (1)
 	{
-		fdf_pixel_put(img, pt1->x, pt1->y, color_height(pt1->z));
+		fdf_pixel_put(img, pt1->x, pt1->y, color_height((pt1->z + pt2->z) / 2));
 		pt1->x += 1;
 		if (pt1->x == pt2->x)
 			return (0);
@@ -103,7 +103,7 @@ int	trace_o7(t_point *pt1, t_point *pt2, t_data *img)
 	dy *= 2;
 	while (1)
 	{
-		fdf_pixel_put(img, pt1->x, pt1->y, color_height(pt1->z));
+		fdf_pixel_put(img, pt1->x, pt1->y, color_height((pt1->z + pt2->z) / 2));
 		pt1->y -= 1;
 		if (pt1->y == pt2->y)
 			return (0);

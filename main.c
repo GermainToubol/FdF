@@ -6,7 +6,7 @@
 /*   By: gtoubol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:49:33 by gtoubol           #+#    #+#             */
-/*   Updated: 2022/05/30 14:56:42 by gtoubol          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:15:27 by gtoubol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -57,6 +57,7 @@ int	main(int argc, char **argv)
 			argv[1]);
 	params.map = &map;
 	fdf_init_map_param(&map);
+	map.iso = 1;
 	mlx_loop_hook(params.mlx_ptr, render, &params);
 	mlx_hook(params.win_ptr, 2, 1L << 0, show_key, &params);
 	mlx_hook(params.win_ptr, 17, 0, x_quit, &params);

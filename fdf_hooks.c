@@ -9,6 +9,8 @@ int	show_key(int key, t_params *params)
 	fdf_move(key, params);
 	fdf_rotate(key, params);
 	fdf_reset_scale(key, params);
+	if (key == 102)
+		params->map->iso = !params->map->iso;
 	return (0);
 }
 
